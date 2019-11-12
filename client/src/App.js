@@ -1,24 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import PlayerCard from "./Components/PlayerCard";
+import UseDarkMode from "./Components/UseDarkMode";
 
 function App() {
+
+  const [ theme, toggleTheme ] = UseDarkMode()
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    
+
+    <div className="App" style={{
+      background: theme === 'dark' ? '#000' : '#fff',
+      color: theme === 'dark' ? '#fff' : '#000',
+    }}>
+      <h1 data-testid="title">Womans World Cup Players</h1>
+      <button 
+      type='button' 
+      onClick={toggleTheme}
+      data-testid="togglebutton"
+      >Dark Mode</button>
+      <PlayerCard />
     </div>
   );
 }
