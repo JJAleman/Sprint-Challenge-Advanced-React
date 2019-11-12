@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
 import PlayerCard from "./Components/PlayerCard";
-import useDarkMode from "./Components/UseDarkMode";
+import UseDarkMode from "./Components/UseDarkMode";
 
 function App() {
 
-  const [ theme, toggleTheme ] = useDarkMode()
+  const [ theme, toggleTheme ] = UseDarkMode()
 
 
   return (
@@ -15,8 +15,12 @@ function App() {
       background: theme === 'dark' ? '#000' : '#fff',
       color: theme === 'dark' ? '#fff' : '#000',
     }}>
-      <p>This is the app!</p>
-      <button type='button' onClick={toggleTheme}>Switch theme</button>
+      <h1 data-testid="title">Womans World Cup Players</h1>
+      <button 
+      type='button' 
+      onClick={toggleTheme}
+      data-testid="togglebutton"
+      >Dark Mode</button>
       <PlayerCard />
     </div>
   );
